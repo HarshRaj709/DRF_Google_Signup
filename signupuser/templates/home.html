@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1><center>Use this Api for authentications: <span><b><u>api/auth/social/login/google/</u></b></span></center></h1>
+    {% if request.user.is_authenticated %}
+        <h1>Login Done</h1><br>
+        <br>
+        <h2>Username:{{user.username}}</h2>
+        <h2>first name:{{user.first_name}}</h2>
+        <h2>last name:{{user.last_name}}</h2>
+        <a href="{% url 'logout' %}"><button>logout</button></a>
+    {% else %}
+        <h1>Login not Done</h1><br>
+        <br>
+        <a href="{% url 'google_login' %}"><button>login</button></a>
+    {% endif %}
+</body>
+</html>
